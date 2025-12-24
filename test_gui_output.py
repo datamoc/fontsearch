@@ -16,7 +16,7 @@ def test_gui_mode(mode_arg, mode_name):
     try:
         # Start the GUI process
         process = subprocess.Popen(
-            [sys.executable, "-m", "fontfinder", mode_arg],
+            [sys.executable, "-m", "fontsearch", mode_arg],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
@@ -60,7 +60,7 @@ def test_gui_mode(mode_arg, mode_name):
 
 def main():
     """Test all GUI modes."""
-    print("FontFinder GUI Output Test")
+    print("FontSearch GUI Output Test")
     print("=" * 40)
     
     modes = [

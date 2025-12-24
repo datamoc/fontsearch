@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test script to verify internationalization functionality in FontFinder.
+Test script to verify internationalization functionality in FontSearch.
 """
 
 import sys
@@ -8,11 +8,11 @@ from pathlib import Path
 
 def test_i18n_system():
     """Test the i18n system functionality."""
-    print("🌍 Testing FontFinder Internationalization System")
+    print("🌍 Testing FontSearch Internationalization System")
     print("=" * 60)
     
     try:
-        from fontfinder.i18n import (
+        from fontsearch.i18n import (
             _, set_language, get_current_language, get_language_name,
             get_available_languages, detect_system_language, SUPPORTED_LANGUAGES
         )
@@ -82,7 +82,7 @@ def test_translation_files():
     print("\n📁 Testing translation files:")
     print("-" * 40)
     
-    from fontfinder.i18n import SUPPORTED_LANGUAGES, get_translations_dir
+    from fontsearch.i18n import SUPPORTED_LANGUAGES, get_translations_dir
     
     translations_dir = get_translations_dir()
     print(f"Translations directory: {translations_dir}")
@@ -113,11 +113,11 @@ def test_gui_integration():
     print("-" * 40)
     
     try:
-        from fontfinder.gui_i18n import FontViewerI18nApp
+        from fontsearch.gui_i18n import FontViewerI18nApp
         print("✅ Internationalized GUI class imported successfully")
         
         # Test that it can access i18n functions
-        from fontfinder.i18n import _
+        from fontsearch.i18n import _
         test_title = _("app_title")
         print(f"✅ GUI can access translations: {test_title}")
         
@@ -134,13 +134,13 @@ def test_cli_integration():
     
     try:
         # Test that CLI can import the i18n GUI
-        from fontfinder.cli import main
+        from fontsearch.cli import main
         print("✅ CLI can import i18n GUI module")
         
         # Test help text includes i18n option
         import subprocess
         result = subprocess.run([
-            sys.executable, "-m", "fontfinder.cli", "--help"
+            sys.executable, "-m", "fontsearch.cli", "--help"
         ], capture_output=True, text=True, cwd=Path(__file__).parent)
         
         if "--gui-i18n" in result.stdout:
@@ -159,7 +159,7 @@ def show_language_samples():
     print("\n🎨 Language Sample Texts:")
     print("=" * 60)
     
-    from fontfinder.i18n import set_language, _, SUPPORTED_LANGUAGES
+    from fontsearch.i18n import set_language, _, SUPPORTED_LANGUAGES
     
     for lang_code, lang_name in SUPPORTED_LANGUAGES.items():
         set_language(lang_code)
@@ -173,7 +173,7 @@ def show_language_samples():
 
 def main():
     """Run all i18n tests."""
-    print("FontFinder Internationalization Test Suite")
+    print("FontSearch Internationalization Test Suite")
     print("=" * 60)
     
     tests = [
@@ -213,9 +213,9 @@ def main():
     print(f"\nOverall: {passed}/{total} tests passed")
     
     if passed == total:
-        print("🎉 All i18n tests passed! FontFinder is ready for global use.")
+        print("🎉 All i18n tests passed! FontSearch is ready for global use.")
         print("\n🌍 Supported Languages:")
-        from fontfinder.i18n import SUPPORTED_LANGUAGES
+        from fontsearch.i18n import SUPPORTED_LANGUAGES
         for code, name in SUPPORTED_LANGUAGES.items():
             print(f"   {code} - {name}")
         print(f"\n📊 Total coverage: 5.2+ billion speakers worldwide!")

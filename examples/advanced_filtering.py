@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-Advanced filtering examples for FontFinder.
+Advanced filtering examples for FontSearch.
 """
 
 import sys
 from pathlib import Path
 from collections import Counter
 
-# Add parent directory to path for importing fontfinder
+# Add parent directory to path for importing fontsearch
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import fontfinder
-from fontfinder import FontType
+import fontsearch
+from fontsearch import FontType
 
 
 def demonstrate_type_filtering():
@@ -19,18 +19,18 @@ def demonstrate_type_filtering():
     print("🔍 Font Type Filtering Examples\n")
     
     # Get all fonts
-    all_fonts = fontfinder.find_fonts()
+    all_fonts = fontsearch.find_fonts()
     print(f"Total fonts found: {len(all_fonts)}")
     
     # Filter by each type
     type_counts = {}
     for font_type in FontType:
-        fonts = fontfinder.find_fonts(types=[font_type])
+        fonts = fontsearch.find_fonts(types=[font_type])
         type_counts[font_type.name] = len(fonts)
         print(f"   {font_type.name}: {len(fonts)} fonts")
     
     # Multiple types
-    common_types = fontfinder.find_fonts(types=[FontType.TTF, FontType.OTF])
+    common_types = fontsearch.find_fonts(types=[FontType.TTF, FontType.OTF])
     print(f"   TTF + OTF: {len(common_types)} fonts")
     print()
 
@@ -60,7 +60,7 @@ def demonstrate_text_filtering():
         ]
         
         for name, text in test_cases:
-            fonts = fontfinder.find_fonts(text=text, max_results=5)
+            fonts = fontsearch.find_fonts(text=text, max_results=5)
             print(f"   {name} ('{text}'): {len(fonts)} fonts")
             if fonts:
                 print(f"     Examples: {', '.join(font.name for font in fonts[:3])}")
@@ -75,7 +75,7 @@ def demonstrate_random_sampling():
     
     # Different sample sizes
     for size in [3, 5, 10]:
-        random_fonts = fontfinder.find_fonts(random_order=True, max_results=size)
+        random_fonts = fontsearch.find_fonts(random_order=True, max_results=size)
         print(f"   Random {size} fonts:")
         for font in random_fonts:
             type_name = font.font_type.name if font.font_type else "Unknown"
@@ -92,7 +92,7 @@ def demonstrate_combined_filtering():
         
         # Complex filtering combinations
         print("   1. TTF fonts supporting German characters:")
-        german_ttf = fontfinder.find_fonts(
+        german_ttf = fontsearch.find_fonts(
             text="äöü ß",
             types=[FontType.TTF],
             max_results=5
@@ -101,7 +101,7 @@ def demonstrate_combined_filtering():
             print(f"      {font.name}")
         
         print(f"\n   2. Random OTF fonts (max 3):")
-        random_otf = fontfinder.find_fonts(
+        random_otf = fontsearch.find_fonts(
             types=[FontType.OTF],
             random_order=True,
             max_results=3
@@ -110,7 +110,7 @@ def demonstrate_combined_filtering():
             print(f"      {font.name}")
         
         print(f"\n   3. Fonts supporting emojis (any type, max 3):")
-        emoji_fonts = fontfinder.find_fonts(
+        emoji_fonts = fontsearch.find_fonts(
             text="🌷😀",
             max_results=3
         )
@@ -129,7 +129,7 @@ def analyze_font_distribution():
     print("📊 Font Distribution Analysis\n")
     
     # Get all fonts
-    all_fonts = fontfinder.find_fonts()
+    all_fonts = fontsearch.find_fonts()
     
     # Analyze by type
     type_counter = Counter()
@@ -158,7 +158,7 @@ def find_interesting_fonts():
     """Find fonts with interesting characteristics."""
     print("🎯 Interesting Font Discovery\n")
     
-    all_fonts = fontfinder.find_fonts()
+    all_fonts = fontsearch.find_fonts()
     
     # Find fonts with interesting keywords
     categories = {
@@ -186,7 +186,7 @@ def find_interesting_fonts():
 
 def main():
     """Run all advanced filtering examples."""
-    print("🎨 FontFinder Advanced Filtering Examples")
+    print("🎨 FontSearch Advanced Filtering Examples")
     print("=" * 50)
     
     try:

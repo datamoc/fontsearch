@@ -1,1 +1,1 @@
-# Tests for FontFinder
+# Tests for FontSearch

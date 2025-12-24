@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Build and test script for FontFinder package.
+Build and test script for FontSearch package.
 """
 
 import subprocess
@@ -41,7 +41,7 @@ def clean_build():
     """Clean previous build artifacts."""
     print("🧹 Cleaning build artifacts...")
     
-    dirs_to_clean = ["build", "dist", "fontfinder.egg-info"]
+    dirs_to_clean = ["build", "dist", "fontsearch.egg-info"]
     for dir_name in dirs_to_clean:
         dir_path = Path(dir_name)
         if dir_path.exists():
@@ -56,7 +56,7 @@ def run_tests():
     print("🧪 Running tests...")
     
     # Run the test file
-    test_file = Path("tests/test_fontfinder.py")
+    test_file = Path("tests/test_fontsearch.py")
     if test_file.exists():
         result = subprocess.run([sys.executable, str(test_file)], 
                               capture_output=True, text=True)
@@ -110,16 +110,16 @@ def test_installation():
         return False
     
     # Test CLI
-    if not run_command("fontfinder --help", "Testing CLI help"):
+    if not run_command("fontsearch --help", "Testing CLI help"):
         return False
     
     # Test Python import
-    test_code = "import fontfinder; print(f'✅ Found {len(fontfinder.get_fonts())} fonts')"
+    test_code = "import fontsearch; print(f'✅ Found {len(fontsearch.get_fonts())} fonts')"
     if not run_command([sys.executable, "-c", test_code], "Testing Python import"):
         return False
     
     # Uninstall
-    if not run_command([sys.executable, "-m", "pip", "uninstall", "fontfinder", "-y"], 
+    if not run_command([sys.executable, "-m", "pip", "uninstall", "fontsearch", "-y"], 
                       "Uninstalling test installation"):
         print("⚠️  Could not uninstall, you may need to do this manually")
     
@@ -151,7 +151,7 @@ def show_results():
 
 def main():
     """Main build and test process."""
-    print("🚀 FontFinder Package Builder")
+    print("🚀 FontSearch Package Builder")
     print("=" * 50)
     
     # Check Python version

@@ -1,5 +1,5 @@
 """
-Setup script for FontFinder package.
+Setup script for FontSearch package.
 """
 
 from setuptools import setup, find_packages
@@ -10,14 +10,14 @@ readme_path = Path(__file__).parent / "README.md"
 long_description = readme_path.read_text(encoding="utf-8") if readme_path.exists() else ""
 
 setup(
-    name="fontfinder",
+    name="fontsearch",
     version="1.1.0",
     author="Michel Weinachter",
     author_email="michel.weinachter@example.com",
     description="Cross-platform font discovery and analysis library",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/michelweinachter/fontfinder",
+    url="https://github.com/datamoc/fontsearch",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -64,13 +64,13 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "fontfinder=fontfinder.cli:main",
+            "fontsearch=fontsearch.cli:main",
         ],
     },
     keywords="fonts typography system cross-platform discovery analysis",
     project_urls={
-        "Bug Reports": "https://github.com/michelweinachter/fontfinder/issues",
-        "Source": "https://github.com/michelweinachter/fontfinder",
-        "Documentation": "https://github.com/michelweinachter/fontfinder/blob/main/README.md",
+        "Bug Reports": "https://github.com/datamoc/fontsearch/issues",
+        "Source": "https://github.com/datamoc/fontsearch",
+        "Documentation": "https://github.com/datamoc/fontsearch/blob/main/README.md",
     },
 )

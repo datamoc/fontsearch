@@ -1,20 +1,20 @@
-# FontFinder v1.0.0 - Release Package Summary
+# FontSearch v1.0.0 - Release Package Summary
 
 ## 🎯 Package Overview
 
-**FontFinder** is a professional, cross-platform Python library for font discovery and analysis with minimal dependencies and clean output (no fonttools warnings).
+**FontSearch** is a professional, cross-platform Python library for font discovery and analysis with minimal dependencies and clean output (no fonttools warnings).
 
 ## 📦 Release Package Structure
 
 ```
-fontfinder-release/
-├── fontfinder/                    # Main package
+fontsearch-release/
+├── fontsearch/                    # Main package
 │   ├── __init__.py               # Package exports
 │   ├── core.py                   # Core font discovery functions
 │   └── cli.py                    # Command-line interface
 ├── tests/                        # Test suite
 │   ├── __init__.py
-│   └── test_fontfinder.py        # Comprehensive tests
+│   └── test_fontsearch.py        # Comprehensive tests
 ├── examples/                     # Usage examples
 │   └── basic_usage.py            # Basic usage demonstration
 ├── setup.py                      # Package setup (legacy)
@@ -43,31 +43,31 @@ fontfinder-release/
 - `max_results`: Limit number of results
 
 ### 💻 Dual Interface
-- **Python API**: `import fontfinder`
-- **CLI Tool**: `fontfinder --help`
+- **Python API**: `import fontsearch`
+- **CLI Tool**: `fontsearch --help`
 
 ## 🚀 Installation & Usage
 
 ### Installation
 ```bash
 # Basic installation (no dependencies)
-pip install fontfinder
+pip install fontsearch
 
 # Full installation (with fonttools)
-pip install fontfinder[full]
+pip install fontsearch[full]
 ```
 
 ### Python API
 ```python
-import fontfinder
-from fontfinder import FontType
+import fontsearch
+from fontsearch import FontType
 
 # Basic usage
-fonts = fontfinder.get_fonts()
-font_files = fontfinder.get_font_files()
+fonts = fontsearch.get_fonts()
+font_files = fontsearch.get_font_files()
 
 # Advanced filtering
-emoji_fonts = fontfinder.find_fonts(
+emoji_fonts = fontsearch.find_fonts(
     text="🌷😀",
     types=[FontType.TTF],
     random_order=True,
@@ -77,7 +77,7 @@ emoji_fonts = fontfinder.find_fonts(
 
 ### CLI Usage
 ```bash
-fontfinder --text "🌷😀" --types TTF,OTF --max 10 --paths
+fontsearch --text "🌷😀" --types TTF,OTF --max 10 --paths
 ```
 
 ## 🧪 Quality Assurance
@@ -108,7 +108,7 @@ fontfinder --text "🌷😀" --types TTF,OTF --max 10 --paths
 - [x] `setup.py` configured
 - [x] `pyproject.toml` modern packaging
 - [x] `MANIFEST.in` includes all files
-- [x] Entry points configured (`fontfinder` CLI)
+- [x] Entry points configured (`fontsearch` CLI)
 
 ### 🚀 Publishing Ready
 - [x] Complete publishing guide provided
@@ -120,9 +120,9 @@ fontfinder --text "🌷😀" --types TTF,OTF --max 10 --paths
 
 ### 1. Quick Test
 ```bash
-cd fontfinder-release
-python tests/test_fontfinder.py
-python -m fontfinder.cli --help
+cd fontsearch-release
+python tests/test_fontsearch.py
+python -m fontsearch.cli --help
 ```
 
 ### 2. Build Package
@@ -144,7 +144,7 @@ python -m twine check dist/*
 python -m twine upload --repository testpypi dist/*
 
 # Test installation
-pip install --index-url https://test.pypi.org/simple/ fontfinder
+pip install --index-url https://test.pypi.org/simple/ fontsearch
 ```
 
 ### 4. Production Upload
@@ -153,8 +153,8 @@ pip install --index-url https://test.pypi.org/simple/ fontfinder
 python -m twine upload dist/*
 
 # Verify
-pip install fontfinder
-fontfinder --version
+pip install fontsearch
+fontsearch --version
 ```
 
 ## 📊 Package Metrics
@@ -195,7 +195,7 @@ fontfinder --version
 
 ## 🚀 Ready for Publication
 
-The FontFinder package is **production-ready** and **PyPI-ready** with:
+The FontSearch package is **production-ready** and **PyPI-ready** with:
 
 - ✅ **Professional code quality**
 - ✅ **Comprehensive testing**
@@ -207,7 +207,7 @@ The FontFinder package is **production-ready** and **PyPI-ready** with:
 
 ---
 
-**Package Name**: `fontfinder`  
+**Package Name**: `fontsearch`  
 **Version**: `1.0.0`  
 **License**: MIT  
 **Python**: 3.8+  

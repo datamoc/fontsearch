@@ -1,6 +1,6 @@
-# FontFinder - Complete PyPI Publishing Guide
+# FontSearch - Complete PyPI Publishing Guide
 
-This guide provides step-by-step instructions for publishing the FontFinder package to PyPI.
+This guide provides step-by-step instructions for publishing the FontSearch package to PyPI.
 
 ## 📋 Prerequisites
 
@@ -12,8 +12,8 @@ This guide provides step-by-step instructions for publishing the FontFinder pack
 python --version
 
 # Create virtual environment (recommended)
-python -m venv fontfinder-env
-fontfinder-env\Scripts\activate
+python -m venv fontsearch-env
+fontsearch-env\Scripts\activate
 ```
 
 #### Linux/macOS (Bash)
@@ -22,8 +22,8 @@ fontfinder-env\Scripts\activate
 python --version
 
 # Create virtual environment (recommended)
-python -m venv fontfinder-env
-source fontfinder-env/bin/activate
+python -m venv fontsearch-env
+source fontsearch-env/bin/activate
 ```
 
 ### 2. Install Build Tools
@@ -50,7 +50,7 @@ pip install build twine wheel setuptools
 #### Windows (PowerShell)
 ```powershell
 # Navigate to the release directory
-cd fontfinder-release
+cd fontsearch-release
 
 # Verify structure
 tree /F
@@ -60,7 +60,7 @@ tree /F
 #### Linux/macOS (Bash)
 ```bash
 # Navigate to the release directory
-cd fontfinder-release
+cd fontsearch-release
 
 # Verify structure
 tree .
@@ -68,8 +68,8 @@ tree .
 
 **Expected structure:**
 ```
-fontfinder-release/
-├── fontfinder/
+fontsearch-release/
+├── fontsearch/
 │   ├── __init__.py
 │   ├── core.py
 │   └── cli.py
@@ -85,10 +85,10 @@ fontfinder-release/
 ### 2. Run Tests
 ```bash
 # Run the test suite
-python tests/test_fontfinder.py
+python tests/test_fontsearch.py
 
 # Expected output:
-# 🚀 FontFinder Module Tests
+# 🚀 FontSearch Module Tests
 # ==================================================
 # 🧪 Testing basic functionality...
 # ✅ get_fonts: Found XXX fonts
@@ -103,14 +103,14 @@ python tests/test_fontfinder.py
 pip install -e .
 
 # Test CLI
-fontfinder --help
-fontfinder --max 5
+fontsearch --help
+fontsearch --max 5
 
 # Test Python API
-python -c "import fontfinder; print(f'Found {len(fontfinder.get_fonts())} fonts')"
+python -c "import fontsearch; print(f'Found {len(fontsearch.get_fonts())} fonts')"
 
 # Uninstall after testing
-pip uninstall fontfinder
+pip uninstall fontsearch
 ```
 
 ## 📦 Building the Package
@@ -137,8 +137,8 @@ rm -rf build/ dist/ *.egg-info/
 python -m build
 
 # This creates:
-# dist/fontfinder-1.0.0.tar.gz      (source distribution)
-# dist/fontfinder-1.0.0-py3-none-any.whl  (wheel distribution)
+# dist/fontsearch-1.0.0.tar.gz      (source distribution)
+# dist/fontsearch-1.0.0-py3-none-any.whl  (wheel distribution)
 ```
 
 ### 3. Verify Build
@@ -184,11 +184,11 @@ python -m venv test-env
 test-env\Scripts\activate
 
 # Install from Test PyPI
-pip install --index-url https://test.pypi.org/simple/ fontfinder
+pip install --index-url https://test.pypi.org/simple/ fontsearch
 
 # Test the installation
-fontfinder --help
-python -c "import fontfinder; print('FontFinder works!')"
+fontsearch --help
+python -c "import fontsearch; print('FontSearch works!')"
 
 # Clean up
 deactivate
@@ -202,11 +202,11 @@ python -m venv test-env
 source test-env/bin/activate
 
 # Install from Test PyPI
-pip install --index-url https://test.pypi.org/simple/ fontfinder
+pip install --index-url https://test.pypi.org/simple/ fontsearch
 
 # Test the installation
-fontfinder --help
-python -c "import fontfinder; print('FontFinder works!')"
+fontsearch --help
+python -c "import fontsearch; print('FontSearch works!')"
 
 # Clean up
 deactivate
@@ -228,11 +228,11 @@ python -m twine upload dist/*
 ### 2. Verify Publication
 ```bash
 # Check the package page
-# Visit: https://pypi.org/project/fontfinder/
+# Visit: https://pypi.org/project/fontsearch/
 
 # Test installation from PyPI
-pip install fontfinder
-fontfinder --version
+pip install fontsearch
+fontsearch --version
 ```
 
 ## 🔐 Security Best Practices
@@ -294,7 +294,7 @@ python -m twine upload dist/*                        # Production PyPI
 ## 📋 Complete Publishing Checklist
 
 ### Pre-Publishing
-- [ ] All tests pass (`python tests/test_fontfinder.py`)
+- [ ] All tests pass (`python tests/test_fontsearch.py`)
 - [ ] Version number updated in `setup.py`, `pyproject.toml`, and `__init__.py`
 - [ ] README.md is complete and accurate
 - [ ] LICENSE file is present
@@ -322,7 +322,7 @@ python -m twine upload dist/*                        # Production PyPI
 1. **Update version numbers** in:
    - `setup.py`
    - `pyproject.toml`
-   - `fontfinder/__init__.py`
+   - `fontsearch/__init__.py`
 
 2. **Update CHANGELOG.md** with new features/fixes
 
@@ -379,32 +379,32 @@ python -m twine check dist/*
 - **Packaging Guide**: https://packaging.python.org/
 - **Twine Documentation**: https://twine.readthedocs.io/
 
-### FontFinder Specific
-- **Repository**: https://github.com/fontfinder/fontfinder
-- **Issues**: https://github.com/fontfinder/fontfinder/issues
-- **Documentation**: https://fontfinder.readthedocs.io/
+### FontSearch Specific
+- **Repository**: https://github.com/fontsearch/fontsearch
+- **Issues**: https://github.com/fontsearch/fontsearch/issues
+- **Documentation**: https://fontsearch.readthedocs.io/
 
 ## 🎉 Success!
 
-Once published, users can install FontFinder with:
+Once published, users can install FontSearch with:
 
 ```bash
 # Basic installation
-pip install fontfinder
+pip install fontsearch
 
 # Full installation with fonttools
-pip install fontfinder[full]
+pip install fontsearch[full]
 
 # Use the CLI
-fontfinder --help
+fontsearch --help
 
 # Use in Python
-import fontfinder
-fonts = fontfinder.get_fonts()
+import fontsearch
+fonts = fontsearch.get_fonts()
 ```
 
 Your package is now available to the Python community! 🚀
 
 ---
 
-**Note**: This guide assumes you have the necessary permissions to publish under the `fontfinder` name on PyPI. If the name is taken, you may need to choose a different package name.
+**Note**: This guide assumes you have the necessary permissions to publish under the `fontsearch` name on PyPI. If the name is taken, you may need to choose a different package name.

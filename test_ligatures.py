@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test script to verify ligature functionality in FontFinder GUI.
+Test script to verify ligature functionality in FontSearch GUI.
 """
 
 import sys
@@ -15,18 +15,18 @@ except ImportError as e:
     print(f"❌ PIL (Pillow) not available: {e}")
     PIL_AVAILABLE = False
 
-# Test FontFinder import
+# Test FontSearch import
 try:
-    import fontfinder
-    from fontfinder.gui import PIL_AVAILABLE as GUI_PIL_AVAILABLE
-    print(f"✅ FontFinder imported successfully")
+    import fontsearch
+    from fontsearch.gui import PIL_AVAILABLE as GUI_PIL_AVAILABLE
+    print(f"✅ FontSearch imported successfully")
     print(f"✅ GUI PIL availability: {GUI_PIL_AVAILABLE}")
 except ImportError as e:
-    print(f"❌ FontFinder import failed: {e}")
+    print(f"❌ FontSearch import failed: {e}")
     sys.exit(1)
 
 # Test font discovery
-fonts = fontfinder.get_fonts()
+fonts = fontsearch.get_fonts()
 print(f"✅ Found {len(fonts)} fonts")
 
 # Test ligature-capable fonts
@@ -61,17 +61,17 @@ else:
     print("   Install with: pip install pillow")
 
 print("\n🎯 To test ligatures in GUI:")
-print("   1. Run: fontfinder --gui")
+print("   1. Run: fontsearch --gui")
 print("   2. Enter ligature text: 'fi fl ff ffi ffl'")
 print("   3. Check 'Ligatures contextuelles' checkbox")
 print("   4. Look for connected characters in supporting fonts")
 
 print("\n📋 Ligature Requirements:")
-print("   ✅ FontFinder installed" if 'fontfinder' in sys.modules else "   ❌ FontFinder not installed")
+print("   ✅ FontSearch installed" if 'fontsearch' in sys.modules else "   ❌ FontSearch not installed")
 print("   ✅ PIL (Pillow) installed" if PIL_AVAILABLE else "   ❌ PIL (Pillow) not installed")
 print("   ✅ GUI PIL detection working" if GUI_PIL_AVAILABLE else "   ❌ GUI PIL detection failed")
 
 if PIL_AVAILABLE and GUI_PIL_AVAILABLE:
-    print("\n🎉 Ligatures should work in FontFinder GUI!")
+    print("\n🎉 Ligatures should work in FontSearch GUI!")
 else:
     print("\n⚠️  Ligatures may not work properly. Install missing dependencies.")

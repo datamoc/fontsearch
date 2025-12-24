@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fontfinder"
+name = "fontsearch"
 version = "1.1.0"
 description = "Cross-platform font discovery and analysis library"
 readme = "README.md"
@@ -43,16 +43,16 @@ dev = [
 ]
 
 [project.scripts]
-fontfinder = "fontfinder.cli:main"
+fontsearch = "fontsearch.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/michelweinachter/fontfinder"
-Repository = "https://github.com/michelweinachter/fontfinder"
-Documentation = "https://github.com/michelweinachter/fontfinder/blob/main/README.md"
-"Bug Reports" = "https://github.com/michelweinachter/fontfinder/issues"
+Homepage = "https://github.com/datamoc/fontsearch"
+Repository = "https://github.com/datamoc/fontsearch"
+Documentation = "https://github.com/datamoc/fontsearch/blob/main/README.md"
+"Bug Reports" = "https://github.com/datamoc/fontsearch/issues"
 
 [tool.setuptools.packages.find]
-include = ["fontfinder*"]
+include = ["fontsearch*"]
 
 [tool.black]
 line-length = 88

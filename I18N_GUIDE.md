@@ -1,8 +1,8 @@
-# FontFinder Internationalization (i18n) Guide
+# FontSearch Internationalization (i18n) Guide
 
 ## 🌍 Supported Languages
 
-FontFinder now supports **10 major world languages** with automatic locale detection:
+FontSearch now supports **10 major world languages** with automatic locale detection:
 
 | Language | Code | Native Name | Speakers |
 |----------|------|-------------|----------|
@@ -24,19 +24,19 @@ FontFinder now supports **10 major world languages** with automatic locale detec
 ### **Launch Internationalized GUI**
 ```bash
 # Launch i18n GUI with automatic language detection
-fontfinder --gui-i18n
+fontsearch --gui-i18n
 ```
 
 ### **Language Selection**
-1. **Automatic Detection**: FontFinder automatically detects your system language
+1. **Automatic Detection**: FontSearch automatically detects your system language
 2. **Manual Selection**: Use the language dropdown in the top-right corner
 3. **Real-time Switching**: Change languages without restarting the application
 
 ### **Available GUI Options**
 ```bash
-fontfinder --gui          # Basic GUI (English/French)
-fontfinder --gui-advanced # Advanced GUI with SVG (English/French)  
-fontfinder --gui-i18n     # Internationalized GUI (10 languages)
+fontsearch --gui          # Basic GUI (English/French)
+fontsearch --gui-advanced # Advanced GUI with SVG (English/French)  
+fontsearch --gui-i18n     # Internationalized GUI (10 languages)
 ```
 
 ## 🎯 Features Translated
@@ -130,7 +130,7 @@ AaBbCc 0123 হ্যালো বিশ্ব àéïöü ÆŒß
 
 ### **File Structure**
 ```
-fontfinder/i18n/
+fontsearch/i18n/
 ├── __init__.py                    # i18n system core
 └── translations/
     ├── en.json                    # English (base)
@@ -149,14 +149,14 @@ fontfinder/i18n/
 
 ### **Basic Usage**
 ```python
-from fontfinder.i18n import _, set_language
+from fontsearch.i18n import _, set_language
 
 # Use current language
-print(_("app_title"))  # "FontFinder - Font Viewer"
+print(_("app_title"))  # "FontSearch - Font Viewer"
 
 # Change language
 set_language('es')
-print(_("app_title"))  # "FontFinder - Visor de Fuentes"
+print(_("app_title"))  # "FontSearch - Visor de Fuentes"
 
 # With variables
 print(_("fonts_found", count=42))  # "42 fuentes encontradas"
@@ -164,7 +164,7 @@ print(_("fonts_found", count=42))  # "42 fuentes encontradas"
 
 ### **Language Detection**
 ```python
-from fontfinder.i18n import detect_system_language, get_available_languages
+from fontsearch.i18n import detect_system_language, get_available_languages
 
 # Detect system language
 lang = detect_system_language()
@@ -178,7 +178,7 @@ for code, name in langs.items():
 
 ### **GUI Integration**
 ```python
-from fontfinder.i18n import _, set_language, get_available_languages
+from fontsearch.i18n import _, set_language, get_available_languages
 
 # Create language selector
 languages = get_available_languages()
@@ -197,12 +197,12 @@ def on_language_change():
 ### **1. Create Translation File**
 ```bash
 # Create new translation file
-cp fontfinder/i18n/translations/en.json fontfinder/i18n/translations/de.json
+cp fontsearch/i18n/translations/en.json fontsearch/i18n/translations/de.json
 ```
 
 ### **2. Update Language List**
 ```python
-# In fontfinder/i18n/__init__.py
+# In fontsearch/i18n/__init__.py
 SUPPORTED_LANGUAGES = {
     'en': 'English',
     'de': 'Deutsch',  # Add new language
@@ -213,7 +213,7 @@ SUPPORTED_LANGUAGES = {
 ### **3. Translate Content**
 ```json
 {
-  "app_title": "FontFinder - Schriftarten-Viewer",
+  "app_title": "FontSearch - Schriftarten-Viewer",
   "sample_text_default": "AaBbCc 0123 äöü ß",
   "filter_compatible": "Kompatible Schriftarten filtern",
   // ... translate all keys
@@ -223,7 +223,7 @@ SUPPORTED_LANGUAGES = {
 ### **4. Test Translation**
 ```bash
 # Test new language
-LANG=de fontfinder --gui-i18n
+LANG=de fontsearch --gui-i18n
 ```
 
 ## 🔍 Translation Keys Reference
@@ -262,7 +262,7 @@ LANG=de fontfinder --gui-i18n
 ## 🎯 Best Practices
 
 ### **For Users**
-1. **System Language**: FontFinder automatically detects your system language
+1. **System Language**: FontSearch automatically detects your system language
 2. **Manual Override**: Use the language dropdown to switch languages
 3. **Font Testing**: Each language includes appropriate test characters
 4. **Cultural Context**: Sample text is culturally relevant for each language
@@ -282,7 +282,7 @@ LANG=de fontfinder --gui-i18n
 ## 🏆 Benefits
 
 ### **Global Accessibility**
-- **5.2B+ speakers** can use FontFinder in their native language
+- **5.2B+ speakers** can use FontSearch in their native language
 - **Cultural relevance** with appropriate sample text and examples
 - **Professional quality** translations for all supported languages
 
@@ -298,4 +298,4 @@ LANG=de fontfinder --gui-i18n
 - **Cultural context** in demo text and examples
 - **Professional presentation** for global users
 
-FontFinder's internationalization makes it truly accessible to users worldwide! 🌍✨
+FontSearch's internationalization makes it truly accessible to users worldwide! 🌍✨

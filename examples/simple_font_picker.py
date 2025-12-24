@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Example: Simple font picker dialog using FontFinder widget.
+Example: Simple font picker dialog using FontSearch widget.
 
 This shows how to create a simple font picker dialog that returns
 the selected font name.
@@ -11,10 +11,10 @@ import tkinter as tk
 from tkinter import ttk
 from pathlib import Path
 
-# Add fontfinder to path for this example
+# Add fontsearch to path for this example
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fontfinder.widget import FontPickerWidget
+from fontsearch.widget import FontPickerWidget
 
 
 class FontPickerDialog:

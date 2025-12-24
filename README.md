@@ -1,4 +1,4 @@
-# FontFinder
+# FontSearch
 
 A cross-platform Python library for discovering and analyzing system fonts with minimal dependencies.
 
@@ -19,22 +19,22 @@ A cross-platform Python library for discovering and analyzing system fonts with 
 
 ### Basic installation (no dependencies)
 ```bash
-pip install fontfinder
+pip install fontsearch
 ```
 
 ### Full installation (with fonttools for advanced features)
 ```bash
-pip install fontfinder[full]
+pip install fontsearch[full]
 ```
 
 ### GUI installation (with GUI support and ligatures)
 ```bash
-pip install fontfinder[gui]
+pip install fontsearch[gui]
 ```
 
 ### Complete installation (all features including ligatures)
 ```bash
-pip install fontfinder[all]
+pip install fontsearch[all]
 ```
 
 ## Quick Start
@@ -42,35 +42,35 @@ pip install fontfinder[all]
 ### Python API
 
 ```python
-import fontfinder
+import fontsearch
 
 # Get all installed fonts
-fonts = fontfinder.get_fonts()
+fonts = fontsearch.get_fonts()
 print(f"Found {len(fonts)} fonts")
 
 # Get detailed font information
-font_info = fontfinder.find_fonts()
+font_info = fontsearch.find_fonts()
 for font in font_info[:5]:
     print(f"{font.name} ({font.font_type.name if font.font_type else 'Unknown'})")
     print(f"  Path: {font.path}")
 
 # Find fonts supporting specific text (requires fonttools)
-emoji_fonts = fontfinder.find_fonts(text="🌷😀")
+emoji_fonts = fontsearch.find_fonts(text="🌷😀")
 print(f"Fonts supporting emojis: {len(emoji_fonts)}")
 
 # Filter by font type
-from fontfinder import FontType
-ttf_fonts = fontfinder.find_fonts(types=[FontType.TTF])
+from fontsearch import FontType
+ttf_fonts = fontsearch.find_fonts(types=[FontType.TTF])
 print(f"TrueType fonts: {len(ttf_fonts)}")
 
 # Get random sample
-random_fonts = fontfinder.find_fonts(random_order=True, max_results=10)
+random_fonts = fontsearch.find_fonts(random_order=True, max_results=10)
 print("10 random fonts:")
 for font in random_fonts:
     print(f"  {font.name}")
 
 # Advanced filtering
-german_fonts = fontfinder.find_fonts(
+german_fonts = fontsearch.find_fonts(
     text="äöü ß",
     types=[FontType.TTF, FontType.OTF],
     max_results=20
@@ -79,19 +79,19 @@ german_fonts = fontfinder.find_fonts(
 
 ### GUI Widget Component
 
-FontFinder includes a reusable tkinter widget that can be embedded in other applications:
+FontSearch includes a reusable tkinter widget that can be embedded in other applications:
 
 ```python
 import tkinter as tk
-from fontfinder import FontPickerWidget
+from fontsearch import FontPickerWidget
 
 def on_font_selected(font_name):
     print(f"Selected font: {font_name}")
 
 root = tk.Tk()
-root.title("My App with FontFinder")
+root.title("My App with FontSearch")
 
-# Embed FontFinder widget
+# Embed FontSearch widget
 font_picker = FontPickerWidget(
     root,
     width=600,
@@ -119,28 +119,28 @@ See `WIDGET_INTEGRATION_GUIDE.md` for complete integration examples.
 
 ```bash
 # List all fonts
-fontfinder
+fontsearch
 
 # Launch graphical user interface
-fontfinder --gui
+fontsearch --gui
 
 # Launch advanced GUI with SVG support
-fontfinder --gui-advanced
+fontsearch --gui-advanced
 
 # Launch internationalized GUI (10 languages)
-fontfinder --gui-i18n
+fontsearch --gui-i18n
 
 # Find fonts supporting emojis
-fontfinder --text "🌷😀"
+fontsearch --text "🌷😀"
 
 # Only TrueType and OpenType fonts
-fontfinder --types TTF,OTF
+fontsearch --types TTF,OTF
 
 # 10 random fonts with paths
-fontfinder --random --max 10 --paths
+fontsearch --random --max 10 --paths
 
 # German character support
-fontfinder --text "äöü ß" --paths
+fontsearch --text "äöü ß" --paths
 ```
 
 ## API Reference
@@ -189,11 +189,11 @@ class FontInfo:
 
 ### Find fonts for multilingual text
 ```python
-import fontfinder
+import fontsearch
 
 # Find fonts supporting multiple languages
 multilingual_text = "Hello 你好 مرحبا Здравствуйте"
-fonts = fontfinder.find_fonts(text=multilingual_text)
+fonts = fontsearch.find_fonts(text=multilingual_text)
 
 print(f"Fonts supporting multilingual text: {len(fonts)}")
 for font in fonts:
@@ -202,10 +202,10 @@ for font in fonts:
 
 ### Analyze font distribution by type
 ```python
-import fontfinder
+import fontsearch
 from collections import Counter
 
-fonts = fontfinder.find_fonts()
+fonts = fontsearch.find_fonts()
 type_counts = Counter(font.font_type.name if font.font_type else 'Unknown' 
                      for font in fonts)
 
@@ -216,11 +216,11 @@ for font_type, count in type_counts.most_common():
 
 ### Random font sampler
 ```python
-import fontfinder
+import fontsearch
 
 def get_random_font_sample(n=5):
     """Get a random sample of fonts."""
-    return fontfinder.find_fonts(random_order=True, max_results=n)
+    return fontsearch.find_fonts(random_order=True, max_results=n)
 
 # Get 5 random fonts
 sample = get_random_font_sample(5)
@@ -230,30 +230,30 @@ for font in sample:
 
 ### GUI Integration
 ```python
-import fontfinder
+import fontsearch
 
 # Perfect for GUI font selectors
-all_fonts = fontfinder.find_fonts()
+all_fonts = fontsearch.find_fonts()
 font_names = [font.name for font in all_fonts]
 
 # Real-time filtering for search-as-you-type
 def filter_fonts(search_text):
-    return fontfinder.find_fonts(text=search_text, max_results=20)
+    return fontsearch.find_fonts(text=search_text, max_results=20)
 
 # Font categorization
-ttf_fonts = fontfinder.find_fonts(types=[fontfinder.FontType.TTF])
+ttf_fonts = fontsearch.find_fonts(types=[fontsearch.FontType.TTF])
 ```
 
 ### GUI Interface
 
-FontFinder includes a graphical user interface for interactive font browsing:
+FontSearch includes a graphical user interface for interactive font browsing:
 
 ```bash
 # Launch GUI from command line
-fontfinder --gui
+fontsearch --gui
 
 # Or run directly
-python -m fontfinder.gui
+python -m fontsearch.gui
 ```
 
 **GUI Features:**

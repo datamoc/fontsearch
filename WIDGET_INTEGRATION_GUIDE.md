@@ -1,8 +1,8 @@
-# FontFinder Widget Integration Guide
+# FontSearch Widget Integration Guide
 
 ## 🎯 Overview
 
-The FontFinder widget (`FontPickerWidget`) is a reusable tkinter component that can be embedded into any Python application. It provides a complete font selection interface with advanced features like internationalization, ligature controls, and font filtering.
+The FontSearch widget (`FontPickerWidget`) is a reusable tkinter component that can be embedded into any Python application. It provides a complete font selection interface with advanced features like internationalization, ligature controls, and font filtering.
 
 ## 🚀 Quick Start
 
@@ -11,13 +11,13 @@ The FontFinder widget (`FontPickerWidget`) is a reusable tkinter component that 
 ```python
 import tkinter as tk
 from tkinter import ttk
-from fontfinder.widget import FontPickerWidget
+from fontsearch.widget import FontPickerWidget
 
 def on_font_selected(font_name):
     print(f"Selected font: {font_name}")
 
 root = tk.Tk()
-root.title("My App with FontFinder")
+root.title("My App with FontSearch")
 
 # Create the FontPicker widget
 font_picker = FontPickerWidget(
@@ -424,7 +424,7 @@ See the `examples/` directory for complete working examples:
 
 ## 🤝 Contributing
 
-The FontFinder widget is designed to be extensible. You can:
+The FontSearch widget is designed to be extensible. You can:
 
 1. **Subclass** `FontPickerWidget` for custom behavior
 2. **Override** methods for custom rendering
@@ -433,8 +433,8 @@ The FontFinder widget is designed to be extensible. You can:
 
 ## 📄 License
 
-FontFinder Widget is licensed under LGPL-3.0, making it suitable for use in both open source and proprietary applications.
+FontSearch Widget is licensed under LGPL-3.0, making it suitable for use in both open source and proprietary applications.
 
 ---
 
-The FontFinder widget makes it easy to add professional font selection capabilities to any tkinter application! 🎨✨
+The FontSearch widget makes it easy to add professional font selection capabilities to any tkinter application! 🎨✨

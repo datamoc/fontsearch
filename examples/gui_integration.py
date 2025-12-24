@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
 """
-Example showing how to integrate FontFinder with a GUI application.
+Example showing how to integrate FontSearch with a GUI application.
 """
 
 import sys
 from pathlib import Path
 
-# Add parent directory to path for importing fontfinder
+# Add parent directory to path for importing fontsearch
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import fontfinder
-from fontfinder import FontType
+import fontsearch
+from fontsearch import FontType
 
 
 def demonstrate_gui_integration():
-    """Show how to use FontFinder in a GUI context."""
-    print("🖥️  FontFinder GUI Integration Examples\n")
+    """Show how to use FontSearch in a GUI context."""
+    print("🖥️  FontSearch GUI Integration Examples\n")
     
     # Example 1: Get all fonts for a font selector
     print("1. Font selector population:")
-    all_fonts = fontfinder.find_fonts()
+    all_fonts = fontsearch.find_fonts()
     font_names = [font.name for font in all_fonts]
     print(f"   Available for font selector: {len(font_names)} fonts")
     print(f"   Sample: {font_names[:3]}")
@@ -27,8 +27,8 @@ def demonstrate_gui_integration():
     
     # Example 2: Filter fonts by type for different categories
     print("2. Font categorization:")
-    ttf_fonts = fontfinder.find_fonts(types=[FontType.TTF])
-    otf_fonts = fontfinder.find_fonts(types=[FontType.OTF])
+    ttf_fonts = fontsearch.find_fonts(types=[FontType.TTF])
+    otf_fonts = fontsearch.find_fonts(types=[FontType.OTF])
     print(f"   TrueType fonts: {len(ttf_fonts)}")
     print(f"   OpenType fonts: {len(otf_fonts)}")
     print()
@@ -39,7 +39,7 @@ def demonstrate_gui_integration():
     
     for term in search_terms:
         try:
-            matching_fonts = fontfinder.find_fonts(text=term, max_results=5)
+            matching_fonts = fontsearch.find_fonts(text=term, max_results=5)
             print(f"   '{term}' → {len(matching_fonts)} fonts")
         except Exception:
             print(f"   '{term}' → text filtering requires fonttools")
@@ -47,7 +47,7 @@ def demonstrate_gui_integration():
     
     # Example 4: Random font suggestions
     print("4. Random font suggestions:")
-    suggestions = fontfinder.find_fonts(random_order=True, max_results=3)
+    suggestions = fontsearch.find_fonts(random_order=True, max_results=3)
     print("   Random suggestions:")
     for font in suggestions:
         print(f"     {font.name} ({font.font_type.name if font.font_type else 'Unknown'})")
@@ -55,7 +55,7 @@ def demonstrate_gui_integration():
     
     # Example 5: Font information for tooltips/details
     print("5. Font details for tooltips:")
-    sample_font = fontfinder.find_fonts(max_results=1)[0]
+    sample_font = fontsearch.find_fonts(max_results=1)[0]
     print(f"   Font: {sample_font.name}")
     print(f"   Path: {sample_font.path}")
     print(f"   Type: {sample_font.font_type.name if sample_font.font_type else 'Unknown'}")
@@ -63,7 +63,7 @@ def demonstrate_gui_integration():
 
 
 def create_simple_font_selector():
-    """Create a simple tkinter font selector using FontFinder."""
+    """Create a simple tkinter font selector using FontSearch."""
     try:
         import tkinter as tk
         from tkinter import ttk
@@ -75,11 +75,11 @@ def create_simple_font_selector():
     
     # Create window
     root = tk.Tk()
-    root.title("FontFinder - Simple Font Selector")
+    root.title("FontSearch - Simple Font Selector")
     root.geometry("400x300")
     
     # Get fonts
-    fonts = fontfinder.find_fonts()
+    fonts = fontsearch.find_fonts()
     font_names = [font.name for font in fonts]
     
     # Create UI
@@ -125,7 +125,7 @@ def create_simple_font_selector():
 
 def main():
     """Run all GUI integration examples."""
-    print("🎨 FontFinder GUI Integration Examples")
+    print("🎨 FontSearch GUI Integration Examples")
     print("=" * 50)
     
     try:
@@ -134,8 +134,8 @@ def main():
         
         print("\n✅ GUI integration examples completed!")
         print("\nFor a full GUI implementation, see:")
-        print("   fontfinder --gui")
-        print("   python -m fontfinder.gui")
+        print("   fontsearch --gui")
+        print("   python -m fontsearch.gui")
         
     except Exception as e:
         print(f"❌ Error in GUI examples: {e}")

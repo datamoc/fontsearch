@@ -29,12 +29,12 @@
 
 ## Files Modified
 
-1. **`fontfinder-release/fontfinder/gui_advanced.py`**
+1. **`fontsearch-release/fontsearch/gui_advanced.py`**
    - Added font selection methods (already existed but incomplete)
    - Fixed `main()` function to return selected font
    - Added click handlers to all UI elements
 
-2. **`fontfinder-release/fontfinder/cli.py`**
+2. **`fontsearch-release/fontsearch/cli.py`**
    - Removed duplicate `return selected_font` statements
    - Fixed double output issue across all GUI modes
 
@@ -50,13 +50,13 @@ All GUI modes now work correctly:
 
 ```bash
 # All modes now return single line with selected font
-fontfinder --gui
+fontsearch --gui
 # Output: Arial
 
-fontfinder --gui-advanced  
+fontsearch --gui-advanced  
 # Output: Times New Roman
 
-fontfinder --gui-i18n
+fontsearch --gui-i18n
 # Output: Calibri
 ```
 

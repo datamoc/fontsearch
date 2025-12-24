@@ -13,7 +13,7 @@ def test_gui_initialization():
     print("=" * 50)
     
     try:
-        from fontfinder.gui_i18n import FontViewerI18nApp
+        from fontsearch.gui_i18n import FontViewerI18nApp
         print("✅ i18n GUI imported successfully")
         
         # Create a test window (don't show it)
@@ -85,7 +85,7 @@ def test_basic_gui():
     print("=" * 50)
     
     try:
-        from fontfinder.gui import FontViewerApp
+        from fontsearch.gui import FontViewerApp
         print("✅ Basic GUI imported successfully")
         
         # Create a test window (don't show it)
@@ -114,7 +114,7 @@ def test_basic_gui():
 
 def main():
     """Run GUI display tests."""
-    print("FontFinder GUI Display Fix Test")
+    print("FontSearch GUI Display Fix Test")
     print("=" * 60)
     
     tests = [

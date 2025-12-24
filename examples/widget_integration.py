@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Example: Using FontFinder widget as a component in another application.
+Example: Using FontSearch widget as a component in another application.
 
-This demonstrates how to embed the FontFinder widget into your own
+This demonstrates how to embed the FontSearch widget into your own
 tkinter application as a reusable component.
 """
 
@@ -11,10 +11,10 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from pathlib import Path
 
-# Add fontfinder to path for this example
+# Add fontsearch to path for this example
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fontfinder.widget import FontPickerWidget
+from fontsearch.widget import FontPickerWidget
 
 
 class TextEditorApp:
@@ -22,7 +22,7 @@ class TextEditorApp:
     
     def __init__(self, root):
         self.root = root
-        self.root.title("Text Editor with FontFinder Integration")
+        self.root.title("Text Editor with FontSearch Integration")
         self.root.geometry("1200x800")
         
         self.current_font = "Arial"
@@ -79,18 +79,18 @@ class TextEditorApp:
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
         # Sample text
-        sample_text = """Welcome to the Text Editor with FontFinder Integration!
+        sample_text = """Welcome to the Text Editor with FontSearch Integration!
 
-This is a demonstration of how to embed the FontFinder widget as a component in your own application.
+This is a demonstration of how to embed the FontSearch widget as a component in your own application.
 
 Features:
-• Select fonts from the FontFinder widget on the right
+• Select fonts from the FontSearch widget on the right
 • Preview fonts with your own sample text
 • Apply selected fonts to this text area
 • Multilingual support (10 languages)
 • Ligature controls for advanced typography
 
-Try selecting different fonts from the FontFinder panel and see how they look in this text area!
+Try selecting different fonts from the FontSearch panel and see how they look in this text area!
 
 The quick brown fox jumps over the lazy dog.
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -109,7 +109,7 @@ st ct sp (historical)
         parent.add(picker_frame, weight=1)
         
         # Title
-        title_label = ttk.Label(picker_frame, text="FontFinder Widget", 
+        title_label = ttk.Label(picker_frame, text="FontSearch Widget", 
                                font=("Arial", 12, "bold"))
         title_label.pack(pady=(0, 10))
         

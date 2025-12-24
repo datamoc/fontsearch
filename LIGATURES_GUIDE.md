@@ -1,4 +1,4 @@
-# FontFinder Ligature Support Guide
+# FontSearch Ligature Support Guide
 
 ## 🔤 What are Ligatures?
 
@@ -16,9 +16,9 @@ Ligatures are special characters where two or more letters are joined together a
 - **ct** → **ct** (c and t connected)
 - **sp** → **sp** (s and p connected)
 
-## ✅ Ligature Support in FontFinder
+## ✅ Ligature Support in FontSearch
 
-FontFinder includes comprehensive ligature support in both GUI interfaces:
+FontSearch includes comprehensive ligature support in both GUI interfaces:
 
 ### **Features Available**
 - ✅ **Contextual Ligatures**: Standard ligatures (fi, fl, ff, etc.)
@@ -41,25 +41,25 @@ FontFinder includes comprehensive ligature support in both GUI interfaces:
 
 ### **Installation Options**
 ```bash
-# Basic FontFinder (no ligatures)
-pip install fontfinder
+# Basic FontSearch (no ligatures)
+pip install fontsearch
 
-# FontFinder with GUI and ligatures
-pip install fontfinder[gui]
+# FontSearch with GUI and ligatures
+pip install fontsearch[gui]
 
-# FontFinder with all features
-pip install fontfinder[all]
+# FontSearch with all features
+pip install fontsearch[all]
 ```
 
 ## 🎯 How to Use Ligatures
 
-### **1. Launch FontFinder GUI**
+### **1. Launch FontSearch GUI**
 ```bash
 # Basic GUI
-fontfinder --gui
+fontsearch --gui
 
 # Advanced GUI (with SVG support)
-fontfinder --gui-advanced
+fontsearch --gui-advanced
 ```
 
 ### **2. Test Ligature Text**
@@ -90,7 +90,7 @@ python test_ligatures.py
 ```
 
 ### **Visual Test**
-1. Open FontFinder GUI
+1. Open FontSearch GUI
 2. Enter: `fi fl ff ffi ffl`
 3. Enable contextual ligatures
 4. Browse through fonts like Calibri, Georgia
@@ -125,9 +125,9 @@ python test_ligatures.py
 python -c "from PIL import Image; print('PIL OK')"
 ```
 
-#### **Check FontFinder PIL Detection**
+#### **Check FontSearch PIL Detection**
 ```bash
-python -c "from fontfinder.gui import PIL_AVAILABLE; print(f'PIL: {PIL_AVAILABLE}')"
+python -c "from fontsearch.gui import PIL_AVAILABLE; print(f'PIL: {PIL_AVAILABLE}')"
 ```
 
 #### **Install Missing Dependencies**
@@ -212,4 +212,4 @@ The office staff affirmed the final offer
 - Graceful degradation for non-supporting fonts
 - Cross-platform ligature support
 
-FontFinder provides professional-grade ligature support for typography enthusiasts and developers! 🚀
+FontSearch provides professional-grade ligature support for typography enthusiasts and developers! 🚀

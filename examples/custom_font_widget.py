@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Example: Custom application with embedded FontFinder widget.
+Example: Custom application with embedded FontSearch widget.
 
 This demonstrates advanced integration with custom styling and callbacks.
 """
@@ -10,10 +10,10 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from pathlib import Path
 
-# Add fontfinder to path for this example
+# Add fontsearch to path for this example
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from fontfinder.widget import FontPickerWidget
+from fontsearch.widget import FontPickerWidget
 
 
 class DesignApp:
@@ -21,7 +21,7 @@ class DesignApp:
     
     def __init__(self, root):
         self.root = root
-        self.root.title("Design App - FontFinder Integration")
+        self.root.title("Design App - FontSearch Integration")
         self.root.geometry("1000x700")
         self.root.configure(bg="#f0f0f0")
         
@@ -222,7 +222,7 @@ class DesignApp:
     
     def _show_font_details(self, font_name):
         """Show detailed information about a font."""
-        # Get font path from FontFinder
+        # Get font path from FontSearch
         font_path = self.font_picker.font_files.get(font_name, "Unknown")
         
         details = f"""Font Details:
@@ -262,9 +262,9 @@ Collection Size: {len(self.selected_fonts)}"""
     
     def _show_about(self):
         """Show about dialog."""
-        about_text = """Design App with FontFinder Integration
+        about_text = """Design App with FontSearch Integration
 
-This application demonstrates how to embed the FontFinder widget as a component in your own application.
+This application demonstrates how to embed the FontSearch widget as a component in your own application.
 
 Features:
 • Browse and preview system fonts
@@ -273,7 +273,7 @@ Features:
 • Advanced font filtering and search
 • Ligature controls for typography
 
-FontFinder Widget provides:
+FontSearch Widget provides:
 • Cross-platform font discovery
 • Multiple GUI variants
 • Internationalization (10 languages)
